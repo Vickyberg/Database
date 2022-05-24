@@ -1,0 +1,48 @@
+-- use library;
+-- Create table user(
+-- UserId int(10)  not null,
+-- FirstName varchar(20) not null,
+-- SecondName varchar(20) not null,
+-- Gender varchar(10) not null,
+-- ContactNo int(15) not null,
+-- constraint User_PK primary key(UserId)
+-- ); 
+
+-- create table book(
+-- BookId int(10) not null,
+-- BookName varchar(20) not null,
+-- AuthorId int(10) not null,
+-- constraint book_PK primary key(BookId)
+
+-- );
+
+create table borrowBook(
+BorrowId int(10) not null,
+`UserId` int(10) not null,
+`BookId` int(10) not null,
+DateBorrowed timestamp not null,
+DueDate datetime  not null,
+constraint borrowBook_pk primary key(BorrowId),
+constraint user_fk foreign key(UserId)
+references user(UserId),
+constraint book_fk foreign key(BookId)
+references book(BookId)
+);
+
+-- create table staff(
+-- StaffId int(10) not null,
+-- `BorrowId` int(10) not null,
+-- FirstName varchar(20) not null,
+-- SecondName varchar(20) not null,
+-- Gender varchar(10) not null,
+-- Address varchar(30) not null,
+-- ContactNo int(15) not null,
+
+-- constraint staff_pk primary key (StaffId),
+-- constraint borrowbook_fk foreign key (BorrowId)
+-- references borrowbook(BorrowId)
+
+
+
+
+-- );borrowbook
